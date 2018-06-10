@@ -16,7 +16,7 @@ class Customer
     result = "Rental Record for #{@name}\n"
 
     @rentals.each do |rental|
-      this_amount = amount_for(rental)
+      this_amount = rental.change
       # add frequent renter points
       frequent_renter_points += 1
       # add bonus for a two-day new release rental
@@ -31,10 +31,6 @@ class Customer
     result += "Amount owed is #{total_amount}\n"
     result += "You earned #{frequent_renter_points} frequent renter points"
     result
-  end
-
-  def amount_for(rental)
-    rental.change
   end
 
 end
