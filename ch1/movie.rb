@@ -5,10 +5,13 @@ class Movie
 
   attr_reader :title
   attr_accessor :price_code
+  attr_writer :price
 
   def price_code(value)
     @price_code = value
     @price = case price_code
+      # can get rid of case statement in future by making callers pass in instance of type themselves
+      # i.e. movie = movie.new("The Watchmen", NewReleasePrice.new)
       when REGULAR: RegularPrice.new
       when NEW_RELEASE: NewReleasePrice.new
       when CHILDRENS: ChildrensPrice.new
