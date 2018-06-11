@@ -18,8 +18,8 @@ class Customer
     @rentals.each do |rental|
       frequent_renter_points += rental.frequent_renter_points
       # show figures for this rental
-      result += "\t" + rental.movie.title + "\t" + rental.change.to_s + "\n"
-      total_amount += rental.change
+      result += "\t" + rental.movie.title + "\t" + rental.charge.to_s + "\n"
+      total_amount += rental.charge
     end
     # add footer lines
     result += "Amount owed is #{total_amount}\n"
